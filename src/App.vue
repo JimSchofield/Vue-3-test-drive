@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Hello, Vue 3</h1>
+    <button @click="toggleVisible">{{ isVisible ? "Hide" : "Reveal" }}</button>
+    <p v-if="isVisible">Here is the visible text!</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { ref } from "vue";
 
 export default {
   name: "App",
-  components: {
-    HelloWorld
+  setup() {
+    const isVisible = ref(false);
+    const toggleVisible = () => (isVisible.value = !isVisible.value);
+
+    return {
+      isVisible,
+      toggleVisible
+    };
   }
 };
 </script>
