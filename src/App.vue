@@ -1,23 +1,26 @@
 <template>
   <div id="app">
-    <h1>Hello, Vue 3</h1>
-    <button @click="toggleVisible">{{ isVisible ? "Hide" : "Reveal" }}</button>
+    <button @click="isVisible = !isVisible">{{ isVisible ? "Hide" : "Reveal" }}</button>
     <p v-if="isVisible">Here is the visible text!</p>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 
 export default {
   name: "App",
   setup() {
     const isVisible = ref(false);
-    const toggleVisible = () => (isVisible.value = !isVisible.value);
+
+    watchEffect(() => {
+      document.title = `Drawer is ${
+        isVisible.value ? "visible" : "not visible"
+      }`;
+    });
 
     return {
       isVisible,
-      toggleVisible
     };
   }
 };
