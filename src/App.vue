@@ -1,26 +1,21 @@
 <template>
   <div id="app">
-    <button @click="isVisible = !isVisible">{{ isVisible ? "Hide" : "Reveal" }}</button>
-    <p v-if="isVisible">Here is the visible text!</p>
+    <p>Mouse position:</p>
+    <p>({{ x }}, {{ y }})</p>
   </div>
 </template>
 
 <script>
-import { ref, watchEffect } from "vue";
+import { useMousePosition } from "./compose/mouseLocation";
 
 export default {
   name: "App",
   setup() {
-    const isVisible = ref(false);
-
-    watchEffect(() => {
-      document.title = `Drawer is ${
-        isVisible.value ? "visible" : "not visible"
-      }`;
-    });
+    const { x, y } = useMousePosition();
 
     return {
-      isVisible,
+      x,
+      y
     };
   }
 };
