@@ -28,7 +28,7 @@ export default {
     });
 
     // Watch does the same thing, but allows watching specific refs
-    // and comparison with previous values: 
+    // and comparison with previous values:
     // watch([ref1, ref2], ([ref1Val, ref2Val], [prevRef1Val, prevRef2Val]) => {});
 
     return { num, square };
