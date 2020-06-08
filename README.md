@@ -1,5 +1,7 @@
 # vue3
 
+This is meant to be a demonstration of some of the changes from Vue 2.x to Vue 3.  Examples are in branches.
+
 ## Project setup
 ```
 yarn install
