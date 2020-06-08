@@ -6,17 +6,25 @@
 </template>
 
 <script>
-import { useMousePosition } from "./compose/mouseLocation";
-
 export default {
   name: "App",
-  setup() {
-    const { x, y } = useMousePosition();
-
+  data() {
     return {
-      x,
-      y
+      x: 0,
+      y: 0
     };
+  },
+  methods: {
+    update(event) {
+      this.x = event.pageX;
+      this.y = event.pageY;
+    }
+  },
+  created() {
+    window.addEventListener("mousemove", this.update);
+  },
+  destroyed() {
+    window.removeEventListener("mousemove", this.update);
   }
 };
 </script>
