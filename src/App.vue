@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <p>Mouse position:</p>
-    <p>({{ x }}, {{ y }})</p>
+    <button @click="isVisible = !isVisible">
+      {{ isVisible ? "Hide" : "Show" }}
+    </button>
+    <p v-if="isVisible">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed inventore
+      ipsa quae laborum ducimus alias, pariatur quasi error libero voluptates
+      aspernatur sapiente quas fugit eum, explicabo expedita minima fuga
+      molestias.
+    </p>
   </div>
 </template>
 
 <script>
-import { useMousePosition } from "./compose/mouseLocation";
-
 export default {
   name: "App",
-  setup() {
-    const { x, y } = useMousePosition();
-
+  data() {
     return {
-      x,
-      y
+      isVisible: false
     };
   }
 };
