@@ -5,8 +5,8 @@ export function useMousePosition() {
   const y = ref(0);
 
   function update(e) {
-    x = e.pageX;
-    y = e.pageY;
+    x.value = e.pageX;
+    y.value = e.pageY;
   }
 
   onMounted(() => {
