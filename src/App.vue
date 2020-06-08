@@ -13,12 +13,14 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   name: "App",
-  data() {
-    return {
-      isVisible: false
-    };
+  setup() {
+    const isVisible = ref(false);
+
+    return { isVisible };
   }
 };
 </script>
