@@ -1,26 +1,37 @@
 <template>
   <div id="app">
-    <button @click="isVisible = !isVisible">
-      {{ isVisible ? "Hide" : "Show" }}
-    </button>
-    <p v-if="isVisible">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed inventore
-      ipsa quae laborum ducimus alias, pariatur quasi error libero voluptates
-      aspernatur sapiente quas fugit eum, explicabo expedita minima fuga
-      molestias.
-    </p>
+    <h1>Computed/Watcher</h1>
+    <div>
+      <label for="val">Enter a number: </label>
+      <input type="number" v-model="num" />
+    </div>
+    <p>{{ num }}</p>
+    <p></p>
+    <p>{{ square }}</p>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, computed, watchEffect } from "vue";
 
 export default {
   name: "App",
   setup() {
-    const isVisible = ref(false);
+    const num = ref(0);
 
-    return { isVisible };
+    const square = computed(() => {
+      return num.value * num.value;
+    });
+
+    watchEffect(() => {
+      document.title = "The number is: " + num.value;
+    });
+
+    // Watch does the same thing, but allows watching specific refs
+    // and comparison with previous values: 
+    // watch([ref1, ref2], ([ref1Val, ref2Val], [prevRef1Val, prevRef2Val]) => {});
+
+    return { num, square };
   }
 };
 </script>
