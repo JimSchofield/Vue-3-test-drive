@@ -51,7 +51,7 @@ export default {
 
 blockquote {
   font-size: 2em;
-  background: rgba(10,20,30,.1);
+  background: rgba(10, 20, 30, 0.1);
   padding: 1em;
   border-radius: 8px;
 }
@@ -66,14 +66,14 @@ blockquote {
 .grid > * {
   list-style-type: none;
   border: 1px solid black;
-  padding: .5em;
+  padding: 0.5em;
   border-radius: 8px;
 }
 
 .grid button {
   display: block;
   width: 100%;
-  margin-top: .5em;
+  margin-top: 0.5em;
   font: inherit;
 }
 </style>

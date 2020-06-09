@@ -7,7 +7,7 @@ export default function useFavorites() {
 
   // The joke here is shallow copied so we lose the reference
   // and it is no longer a reactive object
-  const addJokeToFavorites = joke => favorites.list.push({...joke});
+  const addJokeToFavorites = joke => favorites.list.push({ ...joke });
 
   const removeJokeFromFavorites = joke =>
     (favorites.list = favorites.list.filter(item => joke.id != item.id));
